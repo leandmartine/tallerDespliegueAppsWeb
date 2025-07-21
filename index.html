@@ -1,26 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Taller de deploy apps web</h1>
-  <p>Primera version</p>
-  <table>
-    <thead>
-      <th>
-        <td>Versiones</td>
-        <td>numero</td>
-      </th>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <p>Leandro Martinez 351708</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obligatorio P1 - Leandro Martinez & Maximiliano Muslera</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- INICIO CABEZAL -->
+  </head>
+  <body>
+    <div id="contenedor">
+      <header>
+        <img id="logo" src="https://p1.develotion.com/logo.jpg" alt="logo" />
+        <nav id="navPrincipal">
+          <ul id="navUsuario" class="nav-perfil-usuario nav-perfil-paseador">
+            <li class="nav-perfil-usuario">
+              <a class="btn-nav" data-seccion-para-mostrar="agendarServicio"
+                >Agendar servicio</a
+              >
+            </li>
+            <li class="nav-perfil-usuario">
+              <a class="btn-nav" data-seccion-para-mostrar="consultarReservas"
+                >Consultar reservas</a
+              >
+            </li>
+            <li class="nav-perfil-usuario">
+              <a class="btn-nav" data-seccion-para-mostrar="historialReservas"
+                >Historial de reservas</a
+              >
+            </li>
+            <li class="nav-perfil-paseador">
+              <a
+                class="btn-nav"
+                data-seccion-para-mostrar="consultarReservasPaseador"
+                >Consultar agendas</a
+              >
+            </li>
+            <li class="nav-perfil-paseador">
+              <a class="btn-nav" data-seccion-para-mostrar="listadoDePerros"
+                >Listado de perros asignados</a
+              >
+            </li>
+            <li class="nav-perfil-usuario nav-perfil-paseador">
+              <a id="btnLogout">Cerrar sesion</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!-- FIN CABEZAL -->
+      <!-- INPUTS REGISTRO -->
+      <main>
+        <section
+          id="mostrarRegistro"
+          class="registro div-perfil-usuario div-perfil-paseador"
+        >
+          <div>
+            <a id="volverAlLogin" href="#"><-- Volver</a>
+            <h2>Registrarse</h2>
+            <label for="txtNombre">Nombre de usuario</label>
+            <input type="text" id="txtNombre" />
+            <label for="txtPerro">Nombre de su perro</label>
+            <input type="text" id="txtPerro" />
+            <label for="slcOpciones">Tamaño de perro</label>
+            <select id="slcOpciones">
+              <option value="S">Chico</option>
+              <option value="M">Mediano</option>
+              <option value="G">Grande</option>
+            </select>
+            <label for="txtPass">Contraseña</label>
+            <input type="password" id="txtPass" />
+            <input type="button" value="Registrarse" id="btnRegistrarse" />
+            <p id="mensajesDeRegistro"></p>
+            <br />
+          </div>
+        </section>
+        <!-- FIN INPUTS REGISTRO -->
+        <!-- INICIO INPUTS LOGIN -->
+        <section id="mostrarLogin">
+          <h2>Ingresar</h2>
+          <label for="txtUsuario">Nombre de usuario</label>
+          <input type="text" id="txtUsuario" />
+          <label for="txtPassIngresada">Contraseña</label>
+          <input type="password" id="txtPassIngresada" />
+          <input type="button" value="Ingresar" id="ingresoUsuarios" />
+          <p>
+            Quieres encontrar un paseador y no tienes cuenta?<br /><a
+              id="btnRegistrarUsuario"
+              href="#"
+              >Registrate aqui</a
+            >
+          </p>
+          <p id="mensajesDeLogin"></p>
+          <br />
+          <!--BOTON PAGINA DE ESTADISTICA (DEFENSA)-->
+          <button id="estadisticasEdades">Mostrar estadistica edades</button>
+        </section>
+        <!-- FIN INPUTS LOGIN -->
+
+        <!--COMIENZA PAGINA DE ESTADISTICA (DEFENSA)-->
+        <div id="paginaEstadistica">
+          <h>INFORMACION ESTADISTICA</h>
+          <p id="textoEstadisticas"></p>
+        </div>
+        <!--FIN PAGINA DE ESTADISTICA (DEFENSA)-->
+
+        <!--INICIO DIV PAGINA INICIO - PERFIL CLIENTE-->
+        <div id="divPaginaUsuario" class="div-perfil-usuario">
+          <h1>BIENVENIDO</h1>
+          <h2>
+            Para comenzar ingrese a la pestaña "Agendar servicio" en la parte
+            superior
+          </h2>
+        </div>
+        <!--FIN DIV PAGINA INICIO - Cliente -->
+        <!--INICIO DIV PAGINA INICIO - PERFIL PASEADOR-->
+        <div id="divPaginaPaseador" class="div-perfil-paseador">
+          <h1>BIENVENIDO PASEADOR, QUE TAL EL DIA DE HOY?</h1>
+          <h2>Consulte sus reservas pendientes en "Consultar Agendas"</h2>
+        </div>
+        <!--FIN DIV PAGINA INICIO - PERFIL PASEADOR-->
+        <!--SECCION AGENDAR PASEADOR - PERFIL CLIENTE-->
+        <div id="agendarServicio" class="div-perfil-usuario">
+          <h2>Agendar Servicio</h2>
+          <h3>Seleccionar paseador</h3>
+          <label for="slcSeleccionarPaseadores"></label>
+          <select id="slcSeleccionarPaseadores"></select>
+          <br />
+          <input type="button" value="Agendar" id="confirmarAgenda" />
+          <p id="mensajesDeErrorAgenda"></p>
+        </div>
+        <!--FIN SECCION AGENDAR PASEADOR-->
+        <!--SECCION CONSULTAR RESERVA - PERFIL CLIENTE-->
+        <div id="consultarReservas" class="div-perfil-usuario">
+          <h2>Consultar Reservas</h2>
+          <table id="tablaReservasPendientes">
+            <thead>
+              <th>Nombre paseador</th>
+              <th>Estado</th>
+              <th></th>
+            </thead>
+            <tbody id="tbodyReservasPendientes"></tbody>
+          </table>
+          <p id="mensajeCancelacionReserva"></p>
+        </div>
+        <!--FIN CONSULTAR RESERVA-->
+        <!--SECCION CONSULTAR HISTORIAL RESERVAS - PERFIL CLIENTE-->
+        <div id="historialReservas" class="div-perfil-usuario">
+          <h2>Historial de reservas</h2>
+          <table id="tablaReservasPendientes">
+            <thead>
+              <th>ID</th>
+              <th>Nombre paseador</th>
+              <th>Estado</th>
+              <th>Motivo</th>
+            </thead>
+            <tbody id="tbodyHistorialDeReservas"></tbody>
+          </table>
+        </div>
+        <!--FIN CONSULTAR HISTORIAL RESERVAS-->
+        <!--INICIO AGENDAS PENDIENTES - PERFIL PASEADOR-->
+        <div id="consultarReservasPaseador" class="div-perfil-paseador">
+          <h2>Agendas pendientes</h2>
+          <table>
+            <thead>
+              <th>ID</th>
+              <th>Nombre del perro</th>
+              <th>Estado</th>
+              <th>Tamaño</th>
+              <th>Modificar Estado</th>
+            </thead>
+            <tbody id="tbodyReservasPendientesPaseador"></tbody>
+          </table>
+          <p id="mensajeCancelacionAutomatica"></p>
+        </div>
+        <!--FIN AGENDAS PENDIENTES-->
+        <!--INICIO LISTADO DE PERROS ASIGNADOS Y CUPOS-->
+        <div id="listadoDePerros" class="div-perfil-paseador">
+          <h2>Perros asignados</h2>
+          <table>
+            <thead>
+              <th>ID</th>
+              <th>Nombre del perro</th>
+              <th>Tamaño del perro</th>
+            </thead>
+            <tbody id="tbodyListadoPerros"></tbody>
+          </table>
+          <p id="cuposMaximosPaseador"></p>
+          <p id="cuposDiponiblesPaseador"></p>
+          <p id="porsentajeCuposOcupados"></p>
+        </div>
+        <!--FIN LISTADO DE PERROS ASIGNADOS Y CUPOS-->
+      </main>
+      <!-- FIN CONTENIDO -->
+      <footer>
+        <a href="https://www.ort.edu.uy">Footer</a>
+      </footer>
+      <!-- FIN PIE -->
+    </div>
+    <!-- FIN CONTENEDOR -->
+    <script src="js/Usuarios.js"></script>
+    <script src="js/Reservas.js"></script>
+    <script src="js/Sistema.js"></script>
+    <script src="js/code.js"></script>
+  </body>
 </html>
